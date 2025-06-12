@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CompanionBot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>💬 CompanionBot</h1>
+  <div id="chatbox"></div>
+  <input id="userInput" placeholder="How are you feeling?" />
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("userInput").value;
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: input})
+      });
+      const data = await res.json();
+      document.getElementById("chatbox").innerHTML += `<p><b>You:</b> ${input}</p><p><b>Bot:</b> ${data.reply}</p>`;
+      document.getElementById("userInput").value = '';
+    }
+  </script>
+</body>
+</html>
