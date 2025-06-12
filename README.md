@@ -11,7 +11,7 @@ A friendly mental wellness chatbot that listens empathetically and provides gent
 ## 📦 Setup
 
 ```bash
-git clone https://github.com/yourusername/CompanionBot.git
+git clone https://github.com/Shashwat2303/CompanionBot.git
 cd CompanionBot
 python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
